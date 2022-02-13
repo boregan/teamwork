@@ -1,4 +1,3 @@
-import "./App.css";
 import "./App.scss";
 import { useEffect, useState } from "react";
 
@@ -8,7 +7,6 @@ import Header from "./components/Header";
 function App() {
   const [people, setPeople] = useState([]);
   const [homeworld, setHomeworld] = useState([]);
-  const [count, setCount] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("");
 
@@ -44,6 +42,7 @@ function App() {
         person.edited = new Date(person.edited).toDateString();
       });
 
+      // Some people's mass is unknown, so we set it to 0
       people.forEach((person) => {
         if (person.mass === "unknown") {
           person.mass = 0;
@@ -51,13 +50,13 @@ function App() {
       });
 
       setPeople(people);
-      setCount(pages[0].count);
       setLoading(false);
     };
 
     fetchData();
   }, [people]);
 
+  // Filter people by name
   const handleFilter = (e) => {
     setFilter(e.target.value);
   };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Container, Grid } from "@mui/material";
+import { Container } from "@mui/material";
 import "../App.scss";
 
 import Paper from "@mui/material/Paper";
